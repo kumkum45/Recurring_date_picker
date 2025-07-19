@@ -60,42 +60,42 @@ export default function RecurringDatePicker() {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-blue-50 via-white to-purple-50 p-4">
+    <div className="min-h-screen bg-gradient-to-br from-blue-50 via-white to-purple-50 p-2 sm:p-4">
       <div className="max-w-6xl mx-auto">
         {/* Header section */}
-        <div className="text-center mb-8">
-          <h1 className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent mb-4">
+        <div className="text-center mb-6 sm:mb-8">
+          <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent mb-4">
             Recurring Date Picker
           </h1>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+        <div className="flex flex-col lg:grid lg:grid-cols-3 gap-4 sm:gap-8">
           {/* Left Panel - Configuration */}
-          <div className="lg:col-span-2 space-y-6">
+          <div className="lg:col-span-2 space-y-4 sm:space-y-6">
             {/* Date Range Selection */}
-            <div className="bg-white rounded-2xl shadow-lg border border-gray-100 p-6">
-              <h2 className="text-2xl font-semibold text-gray-800 mb-4 flex items-center gap-2">
-                <Calendar className="w-6 h-6 text-blue-600" />
+            <div className="bg-white rounded-2xl shadow-lg border border-gray-100 p-3 sm:p-6">
+              <h2 className="text-xl sm:text-2xl font-semibold text-gray-800 mb-3 sm:mb-4 flex items-center gap-2">
+                <Calendar className="w-5 h-5 sm:w-6 sm:h-6 text-blue-600" />
                 Date Range
               </h2>
               <DateRangeSelector />
             </div>
 
             {/* Recurrence Type Selection */}
-            <div className="bg-white rounded-2xl shadow-lg border border-gray-100 p-6">
-              <h2 className="text-2xl font-semibold text-gray-800 mb-6 flex items-center gap-2">
-                <Settings className="w-6 h-6 text-blue-600" />
+            <div className="bg-white rounded-2xl shadow-lg border border-gray-100 p-3 sm:p-6">
+              <h2 className="text-xl sm:text-2xl font-semibold text-gray-800 mb-4 sm:mb-6 flex items-center gap-2">
+                <Settings className="w-5 h-5 sm:w-6 sm:h-6 text-blue-600" />
                 Recurrence Pattern
               </h2>
               
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-3 sm:gap-4 mb-4 sm:mb-6">
                 {recurrenceTypes.map((type) => {
                   const Icon = type.icon;
                   return (
                     <button
                       key={type.id}
                       onClick={() => setRecurrenceType(type.id)}
-                      className={`p-4 rounded-xl border-2 transition-all duration-200 hover:shadow-md group ${
+                      className={`w-full p-3 sm:p-4 rounded-xl border-2 transition-all duration-200 hover:shadow-md group text-left ${
                         recurrenceType === type.id
                           ? 'border-blue-500 bg-blue-50 shadow-md'
                           : 'border-gray-200 hover:border-blue-300'
@@ -107,7 +107,7 @@ export default function RecurringDatePicker() {
                             ? 'bg-blue-500 text-white'
                             : 'bg-gray-100 text-gray-600 group-hover:bg-blue-100 group-hover:text-blue-600'
                         }`}>
-                          <Icon className="w-5 h-5" />
+                          <Icon className="w-4 h-4 sm:w-5 sm:h-5" />
                         </div>
                         <div className="text-left">
                           <h3 className={`font-semibold ${
@@ -115,7 +115,7 @@ export default function RecurringDatePicker() {
                           }`}>
                             {type.label}
                           </h3>
-                          <p className="text-sm text-gray-500 mt-1">
+                          <p className="text-xs sm:text-sm text-gray-500 mt-1">
                             {type.description}
                           </p>
                         </div>
@@ -126,8 +126,8 @@ export default function RecurringDatePicker() {
               </div>
 
               {/* Recurrence Settings */}
-              <div className="bg-gray-50 rounded-xl p-6">
-                <h3 className="text-lg font-semibold text-gray-700 mb-4">
+              <div className="bg-gray-50 rounded-xl p-3 sm:p-6">
+                <h3 className="text-base sm:text-lg font-semibold text-gray-700 mb-3 sm:mb-4">
                   {getCurrentSettingsLabel()} Settings
                 </h3>
                 <div className="animate-fade-in">
@@ -138,7 +138,7 @@ export default function RecurringDatePicker() {
 
             {/* Validation Message */}
             {validationError && (
-              <div className="bg-red-50 border border-red-200 rounded-xl p-4 animate-slide-up">
+              <div className="bg-red-50 border border-red-200 rounded-xl p-3 sm:p-4 animate-slide-up">
                 <div className="flex items-center gap-2 text-red-700">
                   <div className="w-2 h-2 bg-red-500 rounded-full"></div>
                   <span className="font-medium">{validationError}</span>
@@ -148,10 +148,10 @@ export default function RecurringDatePicker() {
           </div>
 
           {/* Right Panel - Preview */}
-          <div className="lg:col-span-1">
-            <div className="bg-white rounded-2xl shadow-lg border border-gray-100 p-6 sticky top-6">
-              <h2 className="text-2xl font-semibold text-gray-800 mb-4 flex items-center gap-2">
-                <Calendar className="w-6 h-6 text-green-600" />
+          <div className="lg:col-span-1 mt-4 lg:mt-0">
+            <div className="bg-white rounded-2xl shadow-lg border border-gray-100 p-3 sm:p-6 sticky top-6">
+              <h2 className="text-xl sm:text-2xl font-semibold text-gray-800 mb-3 sm:mb-4 flex items-center gap-2">
+                <Calendar className="w-5 h-5 sm:w-6 sm:h-6 text-green-600" />
                 Preview
               </h2>
               <CalendarPreview />
